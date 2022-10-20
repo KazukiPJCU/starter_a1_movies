@@ -25,14 +25,18 @@ def main():
         elif menu_choice == "Q":
             print(movies)
             print("{} movies saved to movies.csv\nEnjoy Your day!".format(len(movies)))
-            with open('movies.csv', 'w') as f:
-                for movie in movies:
-                    f.write("%s" % movie)
+            save_to_file(movies)
             exit()
         else:
             print("Invalid choice")
             display_menu()
             menu_choice = input(">>> ").upper()
+
+
+def save_to_file(movies):
+    with open('movies.csv', 'w') as f:
+        for movie in movies:
+            f.write("%s" % movie)
 
 
 def display_menu():
