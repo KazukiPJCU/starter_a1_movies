@@ -25,10 +25,9 @@ def main():
         elif menu_choice == "Q":
             print(movies)
             print("{} movies saved to movies.csv\nEnjoy Your day!".format(len(movies)))
-            out_file = open("movies.csv", "w")
-            writer = csv.writer(out_file)
-            writer.writerows([movies])
-            out_file.close()
+            with open("movies.csv", "w", newline='') as out_file:
+                writer = csv.writer(out_file)
+                writer.writerows([movies])
             exit()
         else:
             print("Invalid choice")
