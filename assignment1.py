@@ -43,5 +43,9 @@ def get_movies_file():
     return input_file, movies
 
 
+def display_movies(movies):
+    print("display movies")
+
+
 if __name__ == '__main__':
     main()
