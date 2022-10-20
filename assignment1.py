@@ -44,7 +44,37 @@ def get_movies_file():
 
 
 def display_movies(movies):
-    print("display movies")
+    movie_list = 1
+    watched_movies = 0
+    unwatched_movies = 0
+    for movie in movies:
+        parts = movie.split(",")
+        print(movie_list, end=" ")
+        if "u" in parts[3]:
+            unwatched_movies += 1
+            print("*", end=" ")
+        elif "w" in parts[3]:
+            watched_movies += 1
+            print("  ", end=" ")
+        print(parts[0], end=format_movies(movies, parts[0]))
+        print(" - {0} ({1})".format(parts[1], parts[2]))
+        movie_list += 1
+    print('{0} Movies watched, {1} Movies still to watch'.format(watched_movies, unwatched_movies))
+
+
+def format_movies(movies, name_of_movie):
+    max_length = 0
+    space = ''
+    for movie in movies:
+        elements = movie.split(",")
+        for element in elements:
+            if max_length < len(element):
+                max_length = len(element)
+            else:
+                continue
+    for i in range(max_length - len(name_of_movie)):
+        space += " "
+    return space
 
 
 if __name__ == '__main__':
