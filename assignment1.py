@@ -3,30 +3,37 @@ Name: Kazuki Pickersgill
 Date started: 16-10-2022
 GitHub URL:
 """
+import csv
+from sys import exit
 
 
 def main():
     """Prints intro"""
     print("Movies To Watch 1.0 - by Kazuki Pickersgill")
-    input_file, movies = get_movies_file()
+    movies = get_movies_file()
 
     while True:
         display_menu()
-        choice = input(">>> ").upper()
-        if choice == "D":
+        menu_choice = input(">>> ").upper()
+        if menu_choice == "D":
             print("Display Movies")
             display_movies(movies)
-        elif choice == "A":
+        elif menu_choice == "A":
             print("Add movies")
-        elif choice == "W":
+        elif menu_choice == "W":
             print("Watch a movie")
-        elif choice == "Q":
+        elif menu_choice == "Q":
+            print(movies)
             print("{} movies saved to movies.csv\nEnjoy Your day!".format(len(movies)))
-            return False
+            # out_file = open("movies.csv", "w", newline='')
+            # writer = csv.writer(out_file)
+            # writer.writerows(movies)
+            # out_file.close()
+            # exit()
         else:
             print("Invalid choice")
             display_menu()
-            choice = input(">>> ").upper()
+            menu_choice = input(">>> ").upper()
 
 
 def display_menu():
@@ -40,7 +47,7 @@ def get_movies_file():
     movies = input_file.readlines()
     print('{} movies loaded'.format(len(movies)))
     input_file.close()
-    return input_file, movies
+    return movies
 
 
 def display_movies(movies):
