@@ -77,12 +77,12 @@ def display_movies(movies):
         print(movie_list, end=" ")
         if "u" in parts[3]:
             unwatched_movies += 1
-            print("*", end=" ")
+            print("* ", end=" ")
         elif "w" in parts[3]:
             watched_movies += 1
             print("  ", end=" ")
         print(parts[0], end=format_movies(movies, parts[0]))
-        print(" - {0} ({1})".format(parts[1], parts[2]))
+        print(" - {:<4} ({})".format(parts[1], parts[2]))
         movie_list += 1
     print('{0} Movies watched, {1} Movies still to watch'.format(watched_movies, unwatched_movies))
 
