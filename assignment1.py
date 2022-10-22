@@ -3,7 +3,7 @@ Name: Kazuki Pickersgill
 Date started: 16-10-2022
 GitHub URL:
 """
-import csv
+
 from sys import exit
 
 
@@ -20,6 +20,21 @@ def main():
             display_movies(movies)
         elif menu_choice == "A":
             print("Add movies")
+            movie_title = input("Movie Title: ")
+            while movie_title == " ":
+                print("Title can not be black")
+                movie_title = input("Movie Title: ")
+            movie_year = int(input("Year: "))
+            while movie_year < 0:
+                print("Number must be greater than 0")
+                movie_year = int(input("Year: "))
+            movie_category = input("Movie Category: ")
+            while movie_category == '':
+                print("Category can not be blank")
+                movie_category = input("Movie Category: ")
+            add_movie = ("{}, {}, {}, u".format(movie_title, movie_year, movie_category))
+            movies.append(add_movie)
+            print("{}({} from {}) added to movie list".format(movie_title, movie_year, movie_category))
         elif menu_choice == "W":
             print("Watch a movie")
         elif menu_choice == "Q":
@@ -76,10 +91,10 @@ def format_movies(movies, name_of_movie):
     max_length = 0
     space = ''
     for movie in movies:
-        elements = movie.split(",")
-        for element in elements:
-            if max_length < len(element):
-                max_length = len(element)
+        parts = movie.split(",")
+        for part in parts:
+            if max_length < len(part):
+                max_length = len(part)
             else:
                 continue
     for i in range(max_length - len(name_of_movie)):
