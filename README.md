@@ -2,7 +2,7 @@
 
 Assignment 1 for CP1404/CP5632, IT@JCU
 
-By: _Your Name_
+By: _Kazuki Pickersgill_
 
 This repo contains starter files:  
 
@@ -11,14 +11,11 @@ This repo contains starter files:
 - `movies_backup.csv` is the same data, but not to be used in your program... This is here as a backup to copy the data from if you need it again.
 - `README.md` is the file you're reading. You must edit this to answer the questions below.
 
-Edit this README file, replacing the instructions (including this paragraph) with your own assignment details.  
-At the end of the project, complete the very brief project reflection below by answering the questions (replace
-the `answer...` parts).
 
 1. How long did the entire project (assignment 1) take you?
 
-    answer...
+    10 hours
 
 2. What do you plan to do differently in your development process for assignment 2?
 
-    answer...
+    Pay more attention to the example output code, I ended up spending unnecessary time fixing or reformatting my code to match the assignment example out/layout

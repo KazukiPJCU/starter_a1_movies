@@ -1,7 +1,7 @@
 """
 Name: Kazuki Pickersgill
 Date started: 16-10-2022
-GitHub URL:
+GitHub URL:https://github.com/KazukiPJCU/starter_a1_movies/blob/main/assignment1.py
 """
 
 from sys import exit
