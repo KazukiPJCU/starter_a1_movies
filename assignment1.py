@@ -174,5 +174,4 @@ def watch(movies):
             print("Invalid input; enter a valid number")
 
 
-if __name__ == '__main__':
-    main()
+main()
