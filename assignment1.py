@@ -62,7 +62,7 @@ def add_to_movies_list(movies):
     movie_category = check_movie_category()
     add_movie = ("{}, {}, {}, u".format(movie_title, movie_year, movie_category))
     movies.append(add_movie)
-    print("{} ({} from {}) added to movie list".format(movie_title, movie_year, movie_category))
+    print("{} ({} from {}) added to movie list".format(movie_title, movie_category, movie_year))
 
 
 def check_movie_category():
