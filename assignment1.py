@@ -66,7 +66,9 @@ def add_to_movies_list(movies):
 
 
 def check_movie_category():
-    print("Categories available: Action, Comedy, Documentary, Drama, Thriller, Other")
+    """Checks if movie category is in the set of available categories"""
+    print("Categories Available: ", end='')
+    print(', '.join(CATEGORIES))
     movie_category = input("Category: ").title()
     while movie_category == "":
         print("Category can not be blank")
@@ -78,6 +80,7 @@ def check_movie_category():
 
 
 def check_movie_year():
+    """Checks movie year input is valid"""
     while True:
         try:
             movie_year = int(input("Year: "))
@@ -133,12 +136,12 @@ def display_movies(movies):
 
 
 def format_movies(movies, name_of_movie):
-    """Splits movie from movies to add correct spacing"""
+    """Add correct spacing"""
     max_length = 0
     space = ''
     for movie in movies:
         parts = movie.split(",")
-        for part in parts:
+        for part in parts:  # checks which movie length is largest
             if max_length < len(part):
                 max_length = len(part)
             else:
