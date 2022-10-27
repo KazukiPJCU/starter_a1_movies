@@ -130,9 +130,20 @@ def display_movies(movies):
             watched_movies += 1
             print("  ", end=" ")
         print(parts[0], end=format_movies(movies, parts[0]))
-        print(" - {:<4} ({})".format(parts[1], parts[2]))
+        print(" - {:<{}} ({})".format(parts[1], movie_year_format(movies), parts[2]))
         movie_list += 1
     print('{0} Movies watched, {1} Movies still to watch'.format(watched_movies, unwatched_movies))
+
+
+def movie_year_format(movies):
+    max_length = 0
+    for movie in movies:
+        parts = movie.split(",")
+        if max_length < len(parts[1]):
+            max_length = len(parts[1])
+        else:
+            continue
+    return max_length
 
 
 def format_movies(movies, name_of_movie):
