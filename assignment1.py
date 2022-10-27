@@ -136,6 +136,7 @@ def display_movies(movies):
 
 
 def movie_year_format(movies):
+    """Gets the longest element in movie year"""
     max_length = 0
     for movie in movies:
         parts = movie.split(",")
