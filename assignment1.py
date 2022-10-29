@@ -37,6 +37,7 @@ def main():
 
 
 def check_watched(movies):
+    """Checks if there are any movies left to watch"""
     watched_movies = 0
     unwatched_movies = 0
     for movie in movies:
@@ -48,7 +49,7 @@ def check_watched(movies):
     if unwatched_movies == 0:
         print("No more movies to watch")
     else:
-        watch(movies)
+        watch(movies)  # If there are movies to watch continues to watch(movies) method
 
 
 def add_to_movies_list(movies):
@@ -129,14 +130,14 @@ def display_movies(movies):
         elif "w" in parts[3]:
             watched_movies += 1
             print("  ", end=" ")
-        print(parts[0], end=format_movies(movies, parts[0]))
-        print(" - {:<{}} ({})".format(parts[1], movie_year_format(movies), parts[2]))
+        print(("{:<{}} - {:<{}} ({})".format(parts[0], movie_name_format(movies), parts[1], movie_year_format(movies),
+                                             parts[2])))
         movie_list += 1
     print('{0} Movies watched, {1} Movies still to watch'.format(watched_movies, unwatched_movies))
 
 
 def movie_year_format(movies):
-    """Gets the longest element in movie year"""
+    """Gets the longest element in movie year for formatting"""
     max_length = 0
     for movie in movies:
         parts = movie.split(",")
@@ -147,20 +148,16 @@ def movie_year_format(movies):
     return max_length
 
 
-def format_movies(movies, name_of_movie):
-    """Add correct spacing"""
+def movie_name_format(movies):
+    """Gets the longest element in movie name for formatting"""
     max_length = 0
-    space = ''
     for movie in movies:
         parts = movie.split(",")
-        for part in parts:  # checks which movie length is largest
-            if max_length < len(part):
-                max_length = len(part)
-            else:
-                continue
-    for i in range(max_length - len(name_of_movie)):
-        space += " "
-    return space
+        if max_length < len(parts[0]):
+            max_length = len(parts[0])
+        else:
+            continue
+    return max_length
 
 
 def watch(movies):
